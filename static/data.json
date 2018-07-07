@@ -1,5 +1,6 @@
 {
-        "products": [{
+    "products": [
+        {
             "sku": "70741",
             "name": "Brackie",
             "image": "brackie.png",
@@ -218,9 +219,10 @@
             }
         }
     ],
-        "wishlist": [],
-        "cart": [],
-        "attributes": [{
+    "wishlist": [],
+    "cart": [],
+    "attributes": [
+        {
             "id": 0,
             "name": "browar",
             "type": "singleValue"
@@ -251,11 +253,12 @@
             "type": "manyValue"
         }
     ],
-        "attributesIdValue": [
-            "Ciechan|Lwówek|Bojanowo|Calsberg|Kompania Piwowarska|Grupa Żywiec|Amber",
-            "Klasyczny lager|Pszeniczne|Owocowe|Bock|Ale|Stout|Ciemne",
-            "Pilzneński|Monachijski|Karmelowy|Palony|Wiedeński|Prażony|Jęczmienny",
-            "Aromatyczny|Goryczkowy|Neutralny",
-            "Polska|Czechy|Węgry|Rumunia|Słowacja",
-            "Czekolada|Karmel|Owoce leśne|Ziołowy|Zbożowy|Kawowy|Śliwka|Gruszka|Smoła"
-        ]}
+    "attributesIdValue": [
+        "Ciechan|Lwówek|Bojanowo|Calsberg|Kompania Piwowarska|Grupa Żywiec|Amber",
+        "Klasyczny lager|Pszeniczne|Owocowe|Bock|Ale|Stout|Ciemne",
+        "Pilzneński|Monachijski|Karmelowy|Palony|Wiedeński|Prażony|Jęczmienny",
+        "Aromatyczny|Goryczkowy|Neutralny",
+        "Polska|Czechy|Węgry|Rumunia|Słowacja",
+        "Czekolada|Karmel|Owoce leśne|Ziołowy|Zbożowy|Kawowy|Śliwka|Gruszka|Smoła"
+    ]
+}
