@@ -1,11 +1,6 @@
 export default [{
         icon: 'home',
-        title: 'Główna',
+        title: 'Products',
         target: '/'
-    },
-    {
-        icon: 'assignment',
-        title: 'Tasks',
-        target: 'tasks'
     }
 ];

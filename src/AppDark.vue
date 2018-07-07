@@ -2,7 +2,7 @@
 
 <template>
 
-<v-app id="inspire" dark>
+<v-app id="inspire">
     <v-navigation-drawer clipped fixed v-model="drawer" app>
         <v-list dense>
             <v-list-tile v-for="(item, i) in items" :key="i" @click="navigateTo(item.target)">

@@ -1,5 +1,6 @@
+import './firebase'
 import Vue from 'vue'
-
+import VueFire from 'vuefire'
 import App from './AppDark'
 import router from './router'
 import {
@@ -16,6 +17,7 @@ import {
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
 
+Vue.use(VueFire)
 Vue.use(Vuetify, {
     components: {
         VApp,
