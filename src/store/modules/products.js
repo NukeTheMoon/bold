@@ -1,3 +1,5 @@
+import { productsRef, attributesRef, attributesIdValueRef } from '../../firebase'
+
 // initial state
 const state = {
     all: [],
@@ -10,14 +12,14 @@ const getters = {}
 
   // actions
 const actions = {
-    setProducts ({ commit }, data) {
-        commit('setProducts', data)
-    },
-    setProductsDebug ({ commit }) {
+    async fetch ({ commit }) {
+        let products = await productsRef.once('value')
+        let attributes = await attributesRef.once('value')
+        let attributesIdValue = await attributesIdValueRef.once('value')
         commit('setProducts', {
-            products: ['lol'],
-            attributes: ['rofl'],
-            attributesIdValue: ['lmao']
+            products: products.val(),
+            attributes: attributes.val(),
+            attributesIdValue: attributesIdValue.val()
         })
     }
 }

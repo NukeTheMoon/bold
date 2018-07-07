@@ -57,7 +57,7 @@ export default {
         }
     },
     created () {
-        this.$store.dispatch('products/setProductsDebug')
+        this.$store.dispatch('products/fetch')
     },
     name: 'AppDark'
 }

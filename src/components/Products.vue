@@ -1,19 +1,20 @@
 <template>
     <div>
-        <p v-for="product in products" :key="product['.key']">{{ product.name }}</p>
+        <p v-for="product in products" :key="product.name + product.sku">{{ product.name }}</p>
     </div>
 </template>
 
 <script>
-    import { productsRef } from '../firebase'
     export default {
         data () {
             return {
 
             }
         },
-        firebase: {
-            products: productsRef
+        computed: {
+            products () {
+                return this.$store.state.products.all
+            }
         },
         mounted () {
 
