@@ -56,6 +56,9 @@ export default {
             })
         }
     },
+    created () {
+        this.$store.dispatch('products/setProductsDebug')
+    },
     name: 'AppDark'
 }
 </script>
