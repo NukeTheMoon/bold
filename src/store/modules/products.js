@@ -2,7 +2,8 @@ import camelCase from 'lodash.camelcase'
 import { productsRef, attributesRef, attributesIdValueRef } from '../../firebase'
 
 const state = {
-    all: []
+    all: [],
+    imageBaseUrl: 'static/products/'
 }
 
 const getters = {}
@@ -31,6 +32,7 @@ const mutations = {
                 return acc
             }, {})
             product.key = product.name + product.sku
+            product.image = state.imageBaseUrl + product.image
             return product
         })
     }
