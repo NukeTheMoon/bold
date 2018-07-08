@@ -1,10 +1,8 @@
-import { productsRef, attributesRef, attributesIdValueRef } from '../../firebase'
 import camelCase from 'lodash.camelcase'
+import { productsRef, attributesRef, attributesIdValueRef } from '../../firebase'
 
 const state = {
-    all: [],
-    attributes: [],
-    attributesIdValue: []
+    all: []
 }
 
 const getters = {}
@@ -27,16 +25,12 @@ const mutations = {
         state.all = data.products.map(product => {
             product.attributes = product.attributes.reduce((acc, attribute, idx) => {
                 let meta = data.attributes[idx]
-                if (meta.type === 'manyValue') {
-                    acc[camelCase(meta.name)] = data.attributesIdValue[idx].split('|').filter((val, idx) => {
-                        console.log(attribute.split('|'), idx)
-                        return attribute.split('|').includes(idx.toString())
-                    })
-                } else {
-                    acc[camelCase(meta.name)] = data.attributesIdValue[idx].split('|')[attribute]
-                }
+                acc[camelCase(meta.name)] = (meta.type === 'manyValue')
+                     ? data.attributesIdValue[idx].split('|').filter((val, idx) => attribute.split('|').includes(idx.toString()))
+                     : data.attributesIdValue[idx].split('|')[attribute]
                 return acc
             }, {})
+            product.key = product.name + product.sku
             return product
         })
     }
