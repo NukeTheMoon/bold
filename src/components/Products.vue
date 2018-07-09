@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="flex flex-wrap">
-            <div class="margin-bottom-lg panel" v-for="product in products" :key="product.key">
+        <ul class="flex flex-wrap">
+            <li class="margin-bottom-lg panel" v-for="product in products" :key="product.key">
                 <div class="center-inline margin-bottom-lg photo">
                     <img :src="product.image" alt="Product photo">
                 </div>
@@ -28,12 +28,11 @@
                         <p class="margin-bottom-xs">{{ product.attributes.smakiIZapachy.join(', ') }}</p>
                     </template>
                 </div>
-
                 <p class="text-big bold margin-bottom-sm" :class="{ special: hasSpecialPrice(product) }">{{ product.price.value.toFixed(2) }} PLN</p>
                 <button class="btn-main margin-bottom-xs" @click="addToCart(product)">Dodaj do koszyka</button>
                 <button class="btn-alt" @click="addToWishlist(product)">Dodaj do listy życzeń</button>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -43,6 +42,9 @@
             return {
 
             }
+        },
+        created () {
+            this.$store.dispatch('products/fetch')
         },
         computed: {
             products () {
@@ -65,6 +67,15 @@
 
 <style scoped lang="scss">
     $accent: #0090FF;
+
+    .panel {
+        margin: 0 8px 24px;
+        width: 250px;
+    }
+
+    .btn-main, .btn-alt {
+        width: 100%;
+    }
 
     .photo {
         height: 200px;

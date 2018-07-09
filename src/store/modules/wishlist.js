@@ -8,10 +8,11 @@ const actions = {}
 
 const mutations = {
     addProduct (state, product) {
+        if (state.all.find(item => item.key === product.key)) return
         state.all.push(product)
     },
-    removeProduct (state, { id }) {
-        state.all = state.all.reject(item => item.id === id)
+    removeProducts (state, keys) {
+        state.all = state.all.filter(item => !keys.includes(item.key))
     }
 }
 

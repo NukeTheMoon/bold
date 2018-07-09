@@ -56,9 +56,6 @@ export default {
             })
         }
     },
-    created () {
-        this.$store.dispatch('products/fetch')
-    },
     name: 'AppDark'
 }
 </script>
@@ -73,12 +70,23 @@ export default {
         text-align: center;
         text-transform: uppercase;
         padding: 8px 16px;
-        width: 100%;
         font-size: 12px;
+        user-select: none;
+
+        &.btn-disabled {
+            background-color: #eee !important;
+            color: #999 !important;
+            border: 1px solid #eee !important;
+            pointer-events: none;
+        }
     }
 
     p {
         margin: 0;
+    }
+
+    ul {
+        list-style: none;
     }
 
     .text-big {
@@ -129,8 +137,6 @@ export default {
 
     .panel {
         padding: 32px;
-        margin: 0 8px 24px;
-        width: 250px;
         background-color: white;
         box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.18);
         border-radius: 2px;
@@ -139,12 +145,46 @@ export default {
     .btn-main {
         @include button();
         box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.18);
+        border: 1px solid $accent;
         background-color: $accent;
     }
 
     .btn-alt {
         @include button();
+        background-color: white;
         border: 1px solid $accent;
         color: $accent;
+    }
+
+    table {
+        $border-radius: 3px;
+        border: none;
+        border-color: transparent !important;
+        border-collapse: collapse;
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.18);
+        border-radius: $border-radius;
+
+        thead>tr {
+            border-radius: $border-radius $border-radius 0 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        tbody>tr:last-of-type {
+            border-radius: 0 0 $border-radius $border-radius;
+        }
+
+        tr {
+            background-color: white;
+
+            &.highlighted {
+                background-color: #f5f5f5;
+            }
+        }
+
+        td, th {
+            border-style: none;
+            padding: 10px 24px;
+            text-align: right;
+        }
     }
 </style>

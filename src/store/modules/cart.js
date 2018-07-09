@@ -14,8 +14,8 @@ const mutations = {
             if (isInStock(item)) item.amount += 1
         } else state.all.push({ product, amount: 1 })
     },
-    removeProduct (state, { key }) {
-        state.all = state.all.reject(item => item.product.key === key)
+    removeProducts (state, keys) {
+        state.all = state.all.filter(item => !keys.includes(item.product.key))
     }
 }
 
