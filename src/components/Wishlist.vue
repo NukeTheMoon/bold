@@ -37,7 +37,7 @@
                 return this.$store.state.wishlist.all
             },
             anyChecked () {
-                return !!Object.keys(this.checked).some(key => this.checked[key])
+                return Object.keys(this.checked).some(key => this.checked[key])
             },
             checkedKeys () {
                 return Object.keys(this.checked).filter(key => this.checked[key])

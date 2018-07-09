@@ -81,12 +81,56 @@ export default {
         }
     }
 
+    a {
+        text-decoration: none;
+    }
+
     p {
         margin: 0;
     }
 
     ul {
         list-style: none;
+    }
+
+    table {
+        $border-radius: 3px;
+        border: none;
+        border-color: transparent !important;
+        border-collapse: collapse;
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.18);
+        border-radius: $border-radius;
+
+        thead>tr {
+            border-radius: $border-radius $border-radius 0 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        tbody>tr:last-of-type {
+            border-radius: 0 0 $border-radius $border-radius;
+        }
+
+        tr {
+            background-color: white;
+
+            &.highlighted {
+                background-color: #f5f5f5;
+            }
+        }
+
+        td, th {
+            border-style: none;
+            padding: 10px 24px;
+            text-align: right;
+        }
+    }
+
+    .block {
+        display: block;
+    }
+
+    .full-width {
+        width: 100%;
     }
 
     .text-big {
@@ -96,6 +140,10 @@ export default {
     .text-small {
         font-size: 12px;
         color: $sub;
+    }
+
+    .text-center {
+        text-align: center;
     }
 
     .bold {
@@ -154,37 +202,5 @@ export default {
         background-color: white;
         border: 1px solid $accent;
         color: $accent;
-    }
-
-    table {
-        $border-radius: 3px;
-        border: none;
-        border-color: transparent !important;
-        border-collapse: collapse;
-        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.18);
-        border-radius: $border-radius;
-
-        thead>tr {
-            border-radius: $border-radius $border-radius 0 0;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        tbody>tr:last-of-type {
-            border-radius: 0 0 $border-radius $border-radius;
-        }
-
-        tr {
-            background-color: white;
-
-            &.highlighted {
-                background-color: #f5f5f5;
-            }
-        }
-
-        td, th {
-            border-style: none;
-            padding: 10px 24px;
-            text-align: right;
-        }
     }
 </style>
