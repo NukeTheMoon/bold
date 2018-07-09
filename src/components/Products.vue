@@ -37,7 +37,8 @@
             </ul>
         </template>
         <template v-else>
-            <p v-show="productsLoaded">Wszystkie produkty są ukryte.</p>
+            <p v-if="productsLoaded">Wszystkie produkty są ukryte.</p>
+            <p v-else>Proszę zaczekać...</p>
         </template>
     </div>
 </template>
